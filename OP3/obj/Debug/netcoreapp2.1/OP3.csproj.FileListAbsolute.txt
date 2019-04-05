@@ -1,0 +1,11 @@
+C:\Users\lsere\source\repos\OP3\OP3\bin\Debug\netcoreapp2.1\OP3.deps.json
+C:\Users\lsere\source\repos\OP3\OP3\bin\Debug\netcoreapp2.1\OP3.runtimeconfig.json
+C:\Users\lsere\source\repos\OP3\OP3\bin\Debug\netcoreapp2.1\OP3.runtimeconfig.dev.json
+C:\Users\lsere\source\repos\OP3\OP3\bin\Debug\netcoreapp2.1\OP3.dll
+C:\Users\lsere\source\repos\OP3\OP3\bin\Debug\netcoreapp2.1\OP3.pdb
+C:\Users\lsere\source\repos\OP3\OP3\obj\Debug\netcoreapp2.1\OP3.csprojAssemblyReference.cache
+C:\Users\lsere\source\repos\OP3\OP3\obj\Debug\netcoreapp2.1\OP3.csproj.CoreCompileInputs.cache
+C:\Users\lsere\source\repos\OP3\OP3\obj\Debug\netcoreapp2.1\OP3.AssemblyInfoInputs.cache
+C:\Users\lsere\source\repos\OP3\OP3\obj\Debug\netcoreapp2.1\OP3.AssemblyInfo.cs
+C:\Users\lsere\source\repos\OP3\OP3\obj\Debug\netcoreapp2.1\OP3.dll
+C:\Users\lsere\source\repos\OP3\OP3\obj\Debug\netcoreapp2.1\OP3.pdb
