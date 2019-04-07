@@ -1,1 +1,1 @@
-C:\Windows\Microsoft.NET\Framework\v4.0.30319\csc.exe /target:library Program.cs Queue.cs Stack.cs 
+C:\Windows\Microsoft.NET\Framework\v4.0.30319\csc.exe C:\Users\lsere\source\repos\OP3\OP3\*.cs

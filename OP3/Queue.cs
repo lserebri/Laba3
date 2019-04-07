@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace OP3
+namespace Queue
 {
     public class Queue<T>
     {
