@@ -9,6 +9,14 @@ namespace OP3
 
     class Program
     {
+        static void SplitLine(string[] args)
+        {
+            string[] token;
+            int n = 0;
+            int temp = 0;
+            
+            //return token;
+        }
         static bool IsInt(string args)
         {
             int res;
@@ -22,7 +30,7 @@ namespace OP3
                 Console.WriteLine(Output.Pop());
             }
         }
-        static void HashTable(Queue<string> List)
+        static double HashTable(Queue<string> List)
         {
             Stack<double> Numbers = new Stack<double>(5);
             while(List.Count > 0)
@@ -34,7 +42,12 @@ namespace OP3
                 }
                 else
                 {
-                    if (Numbers.Count >= 2)
+                    if (Numbers.Count < 2)
+                    {
+                        Console.WriteLine("error");
+                        return -1.0;
+                    }
+                    else
                     {
                         double value1, value2;
                         value1 = Numbers.Pop();
@@ -42,11 +55,11 @@ namespace OP3
                         double result = 0.0;
                         if (s == "+")
                         {
-                            result = addValues(value1, value1);
+                            result = addValues(value1, value2);   
                         }
                         else if (s == "-")
                         {
-                            result = subtractValues(value1, value1);
+                            result = subtractValues(value1, value2);
                         }
                         else if (s == "*")
                         {
@@ -54,14 +67,23 @@ namespace OP3
                         }
                         else if (s == "/")
                         {
-                            result = divideValues(value1, value1);
+                            result = divideValues(value1, value2);
                         }
-
                         Numbers.Push(result);
                     }
                 }
             }
-            Output(Numbers);
+            if(Numbers.Count == 1)
+            {
+                double outcome = Numbers.Pop();
+                Console.WriteLine(outcome);
+                return outcome;
+            }
+            else
+            {
+                Console.WriteLine("error in calculation");
+                return -1.0;
+            }
         }
         static Queue<string> ToPostFix(string[] args, Stack<string> Operators, Queue<string> Numbers)
         {
@@ -70,11 +92,11 @@ namespace OP3
                 if(IsInt(args[i]))
                 {
                     Numbers.Enqueue(args[i]);
-                }
+                }/*
                 else if (Operators.Peek() == "^")
                 {
                     Operators.Push(args[i]);
-                }
+                }*/
                 else if (operatorPrecedence(args[i]) != -1)
                 { 
                     while(Operators.Count != 0 && operatorPrecedence(Operators.Peek()) >= operatorPrecedence(args[i]))
@@ -82,7 +104,7 @@ namespace OP3
                         Numbers.Enqueue(Operators.Pop());
                     }
                     Operators.Push(args[i]);
-                }    
+                }
                 else if(args[i] == "(")
                 {
                      Operators.Push(args[i]);
@@ -157,10 +179,10 @@ namespace OP3
         }
         static void Main(string[] args)
         {
-            string[] arr = {"5" ,"+", "9"};
             Stack<string> Operators = new Stack<string>(args.Length);
             Queue<string> Numbers = new Queue<string>(args.Length);
-            ToPostFix(arr, Operators, Numbers);
+            //SplitLine(args);
+            ToPostFix(args, Operators, Numbers);
             HashTable(Numbers);
         }
     }

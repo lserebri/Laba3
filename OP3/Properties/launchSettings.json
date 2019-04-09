@@ -1,8 +1,7 @@
 {
   "profiles": {
     "OP3": {
-      "commandName": "Project",
-      "commandLineArgs": "1 + 10"
+      "commandName": "Project"
     }
   }
 }
