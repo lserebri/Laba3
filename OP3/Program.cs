@@ -9,14 +9,6 @@ namespace OP3
 
     class Program
     {
-        static void SplitLine(string[] args)
-        {
-            string[] token;
-            int n = 0;
-            int temp = 0;
-            
-            //return token;
-        }
         static bool IsInt(string args)
         {
             int res;
@@ -92,11 +84,8 @@ namespace OP3
                 if(IsInt(args[i]))
                 {
                     Numbers.Enqueue(args[i]);
-                }/*
-                else if (Operators.Peek() == "^")
-                {
-                    Operators.Push(args[i]);
-                }*/
+                }
+                
                 else if (operatorPrecedence(args[i]) != -1)
                 { 
                     while(Operators.Count != 0 && operatorPrecedence(Operators.Peek()) >= operatorPrecedence(args[i]))
@@ -171,17 +160,10 @@ namespace OP3
             double product = a * b;
             return product;
         }
-
-        static double exponentValues(double a, double b)
-        {
-            double product = Math.Pow(b, a);
-            return product;
-        }
         static void Main(string[] args)
         {
             Stack<string> Operators = new Stack<string>(args.Length);
             Queue<string> Numbers = new Queue<string>(args.Length);
-            //SplitLine(args);
             ToPostFix(args, Operators, Numbers);
             HashTable(Numbers);
         }
