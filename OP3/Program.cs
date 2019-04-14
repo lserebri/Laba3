@@ -114,6 +114,10 @@ namespace OP3
                         {
                             result = divideValues(value1, value2);
                         }
+                        else if (s.Equals("^"))
+                        {
+                            result = exponentValues(Convert.ToDouble(value1), Convert.ToDouble(value2));
+                        }
                         Numbers.Push(result);
                     }
                 }
@@ -211,6 +215,11 @@ namespace OP3
         static double multiplyValues(double a, double b)
         {
             double product = a * b;
+            return product;
+        }
+        static double exponentValues(double a, double b)
+        {
+            double product = Math.Pow(b, a);
             return product;
         }
         static void Main(string[] args)
