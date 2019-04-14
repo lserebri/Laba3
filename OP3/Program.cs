@@ -9,6 +9,59 @@ namespace OP3
 
     class Program
     {
+        static string[] SplitLine(string[] args)
+        {
+            int n = 0;
+            for (int i = 0; i < args[0].Length; i++)
+            {
+
+                if (IsInt(Convert.ToString(args[0][i])) && args[0][i] != ' ')
+                {
+                    n++;
+                    while (IsInt(Convert.ToString(args[0][i])))
+                    {
+                        if (i == args[0].Length - 1)
+                            goto A;
+                        
+                        i++;
+                    }
+                }
+                if (args[0][i] != ' ' || args[0][i] == '+' || args[0][i] == '-' || args[0][i] == '*' || args[0][i] == '/' || args[0][i] == '^' || args[0][i] == '(' || args[0][i] == ')')
+                    n++;
+                A:;
+
+            }
+            string[] s = new string[n];
+            int a = 0;
+            for(int i = 0; i < args[0].Length; i++)
+            {
+                if(IsInt(Convert.ToString(args[0][i])) && args[0][i] != ' ')
+                {
+                    
+                    while(IsInt(Convert.ToString(args[0][i])))
+                    {
+                        if (i == args[0].Length - 1)
+                        {
+                            s[a] += args[0][i].ToString();
+                            goto B;
+                        }
+                            
+                        s[a] += args[0][i].ToString();
+                        i++;
+                    }
+                    a++;
+                    
+                }
+                if (args[0][i] != ' ' || args[0][i] == '+' || args[0][i] == '-' || args[0][i] == '*' || args[0][i] == '/' || args[0][i] == '^' || args[0][i] == '(' || args[0][i] == ')')
+                {
+                    s[a] = Convert.ToString(args[0][i]);
+                    a++;
+                }
+            }
+            B:;
+           
+            return s;
+        }
         static bool IsInt(string args)
         {
             int res;
@@ -36,8 +89,8 @@ namespace OP3
                 {
                     if (Numbers.Count < 2)
                     {
-                        Console.WriteLine("error");
-                        return -1.0;
+                        if(s == "-")
+                            Numbers.Push(Numbers.Pop() * -1);
                     }
                     else
                     {
@@ -162,9 +215,10 @@ namespace OP3
         }
         static void Main(string[] args)
         {
-            Stack<string> Operators = new Stack<string>(args.Length);
-            Queue<string> Numbers = new Queue<string>(args.Length);
-            ToPostFix(args, Operators, Numbers);
+            string[] s = SplitLine(args);
+            Stack<string> Operators = new Stack<string>(s.Length);
+            Queue<string> Numbers = new Queue<string>(s.Length);
+            ToPostFix(s, Operators, Numbers);
             HashTable(Numbers);
         }
     }
